@@ -1,0 +1,216 @@
+.pokemon-list-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pokemon-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .pokemon-table th,
+  .pokemon-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .pokemon-table th {
+    background: linear-gradient(135deg, #5d9edf, #1f6a84);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .pokemon-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .pokemon-table tr:hover {
+    background-color: rgba(76, 175, 80, 0.1); /* Light green on hover */
+  }
+  
+  .pokemon-image {
+    width: 50px;
+  }
+  
+  .action-buttons button {
+    margin-right: 5px;
+  }
+  
+  .action-buttons button:hover {
+    transform: scale(1.2);
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 20px; /* Espaciado superior */
+  }
+  
+  .pagination-button {
+    padding: 10px 15px;
+    margin: 0 5px; /* Espaciado entre botones */
+    background-color: #95b3d3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagination-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination-button:hover:not(:disabled) {
+    background-color: #a2c0e0;
+  }
+  
+  
+  .pokemon-info {
+    text-align: center;
+  }
+  
+  .pokemon-detail-image {
+    width: 100px;
+  }
+  
+  /* Additional enhancements */
+  .pokemon-table img {
+      border-radius: 50%; /* Circular images for Pokémon */
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.2); /* Subtle shadow for images */
+  }
+  
+  h2 {
+      color: #4caf50; /* Consistent color for headings */
+      margin-bottom: .5em; /* Spacing below headings */
+  }.action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .info-btn, .edit-btn, .delete-btn {
+    background-color: #007bff; /* Color de fondo fijo (azul) */
+    color: white; /* Color del texto (blanco) */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    padding: 10px 15px; /* Espaciado interno */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  }
+  
+  .info-btn:hover {
+    background-color: #0056b3; /* Color al pasar el mouse (más oscuro) */
+  }
+  
+  .edit-btn {
+    background-color: #28a745; /* Color de fondo fijo (verde) */
+  }
+  
+  .edit-btn:hover {
+    background-color: #218838; /* Color al pasar el mouse (más oscuro) */
+  }
+  
+  .delete-btn {
+    background-color: #dc3545; /* Color de fondo fijo (rojo) */
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333; /* Color al pasar el mouse (más oscuro) */
+  }
+ 
+.settings-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #f0f4f8;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.settings-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+
+
+.settings-section h3 {
+  margin: 0 0 10px;
+  color: #555;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.setting-item label {
+  font-size: 16px;
+  color: #666;
+}
+
+select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #333;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #4a90e2;
+}
+.search-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  margin-bottom: 20px; /* Espacio entre buscador y tabla */
+}
+
+/* Contenedor de etiqueta y buscador */
+.search-label-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente la etiqueta y el input */
+  gap: 10px; /* Espacio entre la etiqueta y el input */
+}
+
+/* Input del buscador */
+.search-label-container input {
+  width: 300px; /* Ancho ajustable */
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+/* Espacio entre el filtro y la tabla */
+.pokemon-list-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Espacio superior para separar de la búsqueda */
+}
+
+/* Estilos para la tabla */
+.pokemon-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tit{
+  font-size: 20px; /* Tamaño de fuente */
+    color: #333333; /* Color del texto (gris oscuro) */
+    font-weight: bold; /* Negrita */
+    margin: 10px 0; /* Margen superior e inferior */
+    text-align: center; /* Alinear al centro */
+    padding-bottom: 4px; /* Espaciado inferior */
+}

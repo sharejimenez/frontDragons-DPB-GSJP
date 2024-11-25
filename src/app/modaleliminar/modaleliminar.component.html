@@ -1,0 +1,8 @@
+<div class="confirmation-dialog">
+    <h2>Confirmar eliminación</h2>
+    <p>¿Estás seguro de que quieres eliminar el Pokémon {{ data.name }}?</p>
+    <div class="button-container">
+        <button mat-button class="confirm-button" (click)="confirmDelete()">Sí, eliminar</button>
+        <button mat-button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
+    </div>
+</div>

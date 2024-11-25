@@ -1,0 +1,50 @@
+.settings-container {
+  max-width: 600px; /* Ancho máximo del contenedor */
+  margin: 40px auto; /* Centrar el contenedor horizontalmente */
+  padding: 20px; /* Espaciado interno */
+  display: flex; /* Usar flexbox para alinear elementos */
+  flex-direction: column; /* Alinear los elementos en columna */
+  align-items: center; /* Centrar los elementos horizontalmente */
+}
+
+.welcome-card {
+  width: 100%; /* Ancho completo del card */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+mat-card-title {
+  font-size: 24px; /* Tamaño de fuente del título */
+  color: #333; /* Color del texto del título */
+  text-align: center; /* Centrar el texto del título */
+}
+
+mat-card-content p {
+  font-size: 16px; /* Tamaño de fuente del contenido */
+  color: #666; /* Color del texto del contenido */
+  text-align: center; /* Centrar el texto del contenido */
+}
+
+mat-card-actions {
+  display: flex; /* Usar flexbox para alinear los botones */
+  justify-content: center; /* Centrar los botones horizontalmente */
+}
+
+mat-card-actions a {
+  margin-top: 10px; /* Margen superior para separar el botón del contenido */
+}
+
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #4a90e2;
+}
+
+
+img[mat-card-image] {
+  display: block; 
+  margin: 16px auto 16px; /* margen superior de 16px */
+  width: 200px; 
+  height: auto; 
+}
+

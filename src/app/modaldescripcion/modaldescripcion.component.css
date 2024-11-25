@@ -1,0 +1,73 @@
+/* Estilos para el botón de cerrar en el modal */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Título del modal (Nombre del Pokémon) */
+.mat-dialog-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  color: #431c1c;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Imagen del Pokémon */
+.pokemon-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Estilo para la información del Pokémon */
+.pokemon-info {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color: #555;
+  margin: 10px 0;
+}
+
+/* Contenedor de acciones del modal (botón de cerrar) */
+mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Estilos para el botón de cerrar */
+.close-btn {
+  background-color: #ed2d2d;
+  color: white;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 0 auto;  /* Centra el botón si el contenedor no está usando flex */
+  display: block; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #6f2626;
+  transform: scale(1.05);
+}
+
+.close-btn:active {
+  transform: scale(1);
+}

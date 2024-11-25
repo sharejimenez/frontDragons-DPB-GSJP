@@ -9,6 +9,9 @@
 
 
   }
+  .tit{
+    font-weight: bold;
+  }
   /*ESTYLOS PARA EL HEADER */
   .header-centered {
     display: flex; 
@@ -47,7 +50,7 @@
     margin: 10px 0;
     color: #ffffff; 
     height: 35px;
-    background-color: #3a7bd5; 
+    background-color: #0a8b3c; 
     border: none; 
     border-radius: 8px; 
     font-size: 16px; 

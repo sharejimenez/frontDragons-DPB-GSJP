@@ -44,6 +44,7 @@ export class LoginComponent {
     this.userservice.getUsers().subscribe((data)=> {
     this.user = Object.values(data);
     console.log(this.user);
+    
     });
   }
   iniciarSesion() {
@@ -52,7 +53,14 @@ export class LoginComponent {
     ); 
     if (UsuarioExistente) {
       console.log("login exitoso");
-      this.router.navigate(['/welcome']);
+      console.log("nombreusuario:", UsuarioExistente.name); // Aquí se muestra el avatar
+
+      console.log("Avatar del usuario:", UsuarioExistente.avatar); // Aquí se muestra el avatar
+      localStorage.setItem('loggedInUser', JSON.stringify({
+        name: UsuarioExistente.name,
+        avatar: UsuarioExistente.avatar
+      }));
+      this.router.navigate(['/sidebar/welcome']);
     } else {
       console.log("Usuario no encontrado");
       Swal.fire({
@@ -65,6 +73,6 @@ export class LoginComponent {
   }
 
   registrar() {
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/sidebar/welcome']);
   }
 }

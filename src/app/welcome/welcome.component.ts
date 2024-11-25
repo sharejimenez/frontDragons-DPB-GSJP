@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from "../footer/footer.component";
-import { NavbarComponent } from "../navbar/navbar.component";
-import { HomeComponent } from "../home/home.component";
-import { ToolbarComponent } from "../toolbar/toolbar.component";
-
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-welcome',
   standalone: true,
-  imports: [FooterComponent, NavbarComponent, HomeComponent, ToolbarComponent],
+  imports: [MatCardModule,MatButtonModule],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css'
 })

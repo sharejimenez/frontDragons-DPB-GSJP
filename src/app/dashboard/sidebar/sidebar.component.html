@@ -1,0 +1,25 @@
+
+<mat-toolbar class="mat-elevation-z3 " >
+    <button mat-icon-button (click)="collapsed.set(!collapsed())" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="text">Bienvenido, {{ username }}</span>
+    <span class="spacer"></span>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Cerrar sesión
+    </button>
+  </mat-toolbar>
+  
+  <mat-sidenav-container style="background-color: rgb(214, 214, 214); ">
+    <mat-sidenav opened mode="side" [style.width]="sidevabWidth()"  class="border">
+     <app-opciones [collapsed]="collapsed()"></app-opciones>
+    </mat-sidenav>
+    <mat-sidenav-content class="content" [style.margin-left]="sidevabWidth()">
+      <router-outlet/>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  

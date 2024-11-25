@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NavbarComponent } from "../navbar/navbar.component";
-import { ToolbarComponent } from "../toolbar/toolbar.component";
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,7 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [MatSidenavModule,RouterLink, RouterOutlet ,NgxPaginationModule,
     CommonModule, MatTableModule,MatToolbarModule,
     MatPaginatorModule, MatCardModule,
-    MatSortModule, CommonModule, NavbarComponent, ToolbarComponent],
+    MatSortModule, CommonModule, NavbarComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })

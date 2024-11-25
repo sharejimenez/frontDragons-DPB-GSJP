@@ -1,0 +1,39 @@
+
+/*menu lateral*/
+mat-toolbar{
+    position: relative;
+    z-index: 5;
+    background-color: #030724;
+  }
+  .content{
+    padding: 24px;
+    
+  }
+  .border{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f49e09;
+
+  }
+  
+  mat-sidenav-container{
+    height: calc(100vh - 64px);
+  }
+
+  .text {
+    font-size: 24px; /* Tamaño de fuente */
+    color: #eaedef; /* Color del texto */
+    font-weight: bold; /* Negrita */
+    background-color: #00060a; /* Color de fondo */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s; /* Transición suave */
+}
+
+.text:hover {
+    transform: scale(1.045); /* Efecto de aumento al pasar el ratón */
+}
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

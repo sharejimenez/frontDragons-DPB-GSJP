@@ -1,0 +1,123 @@
+/* Estilo para el contenedor del modal */
+mat-dialog-container {
+    width: 90%; /* Ajusta el ancho del modal */
+    max-width: 600px; /* Máximo ancho */
+    padding: 20px;
+    text-align: left; /* Alinear el contenido a la izquierda */
+    border-radius: 1px; /* Sin bordes redondeados */
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  /* Estilo para el título */
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #028c3b;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para los campos de entrada */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para los botones */
+  .actions {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center;     /* Alinea los botones verticalmente */
+    margin-top: 20px;
+    gap: 15px;               /* Espacio entre los botones */
+}
+
+/* Estilos generales */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los campos de entrada */
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus, textarea:focus {
+  border-color: #66afe9;
+  outline: none;
+}
+
+/* Estilos para el botón de guardar */
+.save-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el botón de cancelar */
+button[type="button"].fas.fa-trash {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"].fas.fa-trash:hover {
+  background-color: #e53935;
+}
+
+/* Estilos para la clase actions */
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Estilos adicionales */
+textarea {
+  height: 100px;
+  resize: vertical;
+}

@@ -1,0 +1,16 @@
+<!-- Botón para cerrar el modal -->
+<button class="close-modal" (click)="close()">×</button>
+<!-- Título del modal -->
+<h2 mat-dialog-title>{{ data.name }}</h2>
+
+<!-- Imagen del Pokémon -->
+<img class="pokemon-image" [src]="data.image" alt="{{ data.name }}" />
+
+<!-- Información del Pokémon -->
+<p class="pokemon-info">ID: {{ data.id }}</p>
+<p class="pokemon-info">Descripción: {{ data.description }}</p>
+
+<!-- Contenedor de acciones del modal (botón de cerrar) -->
+<div mat-dialog-actions>
+  <button mat-button class="close-btn" (click)="close()">Cerrar</button>
+</div>

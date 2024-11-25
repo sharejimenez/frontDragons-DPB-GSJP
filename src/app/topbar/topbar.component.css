@@ -1,0 +1,70 @@
+/* Barra superior */
+.topbar {
+  width: calc(100% - 240px); /* Ajusta según el ancho del menú lateral */
+  padding: 10px 20px;
+  background: #34495e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 240px; /* Ajusta al margen del menú lateral */
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: left 0.3s ease; /* Animación suave si el menú colapsa */
+}
+
+/* Íconos */
+.icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Ajustes para el menú lateral */
+.sidebar.collapsed ~ .topbar {
+  left: 60px; /* Cuando el menú está colapsado */
+  width: calc(100% - 60px);
+}
+
+.sidebar {
+  width: 240px;
+  background: #2c3e50;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+/* Contenido principal */
+.content {
+  margin-top: 50px; /* Margen para evitar superposición con la barra superior */
+  margin-left: 240px; /* Igual al ancho del menú lateral */
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .content {
+  margin-left: 60px; /* Ajusta el contenido cuando el menú está colapsado */
+}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+  }
+  .topbar {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}

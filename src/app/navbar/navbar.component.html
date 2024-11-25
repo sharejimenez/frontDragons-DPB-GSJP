@@ -1,32 +1,38 @@
 <mat-sidenav-container class="sidenav-container">
   <!-- Integración del sidebar en el sidenav -->
-  <mat-sidenav mode="side" opened class="sidenav">
-    <app-toolbar></app-toolbar>
-  </mat-sidenav>
-
+ 
   <mat-sidenav-content>
     <!-- Barra superior -->
     <mat-toolbar color="primary">
       <span>Bienvenido Griselda Sharely Jiménez Pérez</span>
       <span class="spacer"></span>
-      
+      <button mat-icon-button (click)="editarPerfil()">
+        <mat-icon>edit</mat-icon>
+        <span>Editar perfil</span>
+      </button>
+      <button mat-icon-button (click)="salir()">
+        <mat-icon>logout</mat-icon>
+        <span>Salir</span>
+      </button>
     </mat-toolbar>
-
     <!-- Contenido principal -->
     <div class="home-container">
       <mat-card class="welcome-card">
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Material Design Image">
-          <mat-card-title>Bienvenido</mat-card-title>
-          <mat-card-content>
-              <p>Este es tu inicio con Angular y Material Design.</p>
-          </mat-card-content>
-          <mat-card-actions>
-              <a mat-raised-button color="accent" href="https://material.angular.io/components/categories" target="_blank">Comenzar</a>
-          </mat-card-actions>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+          alt="Material Design Image">
+        <mat-card-title>Bienvenido</mat-card-title>
+        <mat-card-content>
+          <p>Este es tu inicio con Angular y Material Design.</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-raised-button color="accent" href="https://material.angular.io/components/categories"
+            target="_blank">Comenzar</a>
+        </mat-card-actions>
       </mat-card>
-  </div>
+    </div>
   </mat-sidenav-content>
   <main>
     <router-outlet></router-outlet>
   </main>
 </mat-sidenav-container>
+

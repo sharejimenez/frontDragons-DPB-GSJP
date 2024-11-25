@@ -1,0 +1,101 @@
+.sidenav-header {
+    padding: 24px;
+    text-align: center;
+    transition: padding 0.3s; /* Transición suave */
+}
+
+.sidenav-header > img {
+    width: 100px; /* Tamaño expandido */
+    height: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: width 0.3s, height 0.3s, margin-bottom 0.3s; /* Animación */
+}
+
+.sidenav-header.collapsed > img {
+    width: 32px; /* Tamaño reducido */
+    height: 32px;
+    margin-bottom: 0; /* Eliminar espacio inferior */
+}
+
+.header-text {
+    transition: opacity 0.3s, height 0.3s; /* Transición para ocultar texto */
+}
+
+.header-text.hide-header-text {
+    opacity: 0;
+    height: 0px; /* Ocultar texto con altura */
+    overflow: hidden;
+}
+
+.mat-nav-list {
+    color: rgb(61, 55, 55);
+}
+
+.header-text > h2 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: rgb(14, 5, 55);
+    
+}
+
+.header-text > p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: black;
+    
+}
+.sidenav-header.collapsed {
+    padding: 12px;
+}
+.welcome-text {
+    font-size: 14px; /* Tamaño de fuente pequeño */
+    color: #000000; /* Color del texto negro */
+    font-weight: normal; /* Peso de fuente normal */
+    background-color: transparent; /* Sin color de fondo */
+    padding: 5px; /* Espaciado interno */
+    font-weight: b;
+    border-radius: 0; /* Sin bordes redondeados */
+    text-align: left; /* Alinear a la izquierda */
+    display: inline; /* Mantener como inline */
+    font-weight: bold;
+}
+
+.welcome-text:hover {
+    background-color: #0056b3; /* Cambiaelcolor de fondo al pasar el ratón */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+mat-nav-list a {
+    font-family: 'Poppins', sans-serif; /* Cambia la fuente */
+    font-size: 16px; /* Tamaño de la fuente */
+    color: #444; /* Color de la fuente */
+    text-decoration: none; /* Quita el subrayado */
+    padding: 10px; /* Espaciado interno */
+    display: flex;
+    align-items: center; /* Alinea íconos y texto verticalmente */
+    border-radius: 8px; /* Bordes redondeados para un diseño moderno */
+    transition: background-color 0.3s ease; /* Animación al pasar el ratón */
+  }
+  
+  mat-nav-list a:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+  }
+  
+  mat-icon {
+    font-size: 26px; /* Tamaño más grande del ícono */
+    color: #e7d3a9; /* Color de los íconos */
+    margin-right: 10px; /* Espaciado entre ícono y texto */
+    transition: transform 0.3s ease; /* Animación de escala */
+  }
+  
+  mat-nav-list a:hover mat-icon {
+    transform: scale(1.2); /* Efecto de agrandamiento del ícono al pasar el ratón */
+    color: #f09c01; /* Cambia el color del ícono al pasar el ratón */
+  }
+  
+  mat-list-item span {
+    font-weight: 500; /* Peso de la fuente para destacar */
+  }
+  
