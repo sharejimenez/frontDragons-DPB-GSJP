@@ -17,108 +17,109 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatNavList } from '@angular/material/list';
 import { Router } from '@angular/router';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { DragonService } from '../services/dragons.service';
 @Component({
-  selector: 'app-pokemon',
+  selector: 'app-dragon', // Cambia el selector si es necesario
   standalone: true,
   imports: [CommonModule, RouterLink, MatNavList, RouterOutlet, MatToolbarModule, MatSidenavModule,
-    MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
     MatGridListModule, FormsModule, HttpClientModule, MatIconModule, NavbarComponent],
-  providers: [PokemonService],
+  providers: [DragonService], // Cambia a DragonService
 
-  templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+  templateUrl: './pokemon.component.html', // Cambia el nombre del archivo de plantilla si es necesario
+  styleUrls: ['./pokemon.component.css'] // Cambia el nombre del archivo de estilos si es necesario
 })
 export class PokemonComponent implements OnInit {
   displayedColumns: string[] = ['id', 'image', 'name', 'actions'];
-  dataSource: any[] = []; // Todos los Pokémon
-  filteredData: any[] = []; // Filtered Pokémon based on search
+  dataSource: any[] = []; // Todos los dragones
+  filteredData: any[] = []; // Dragones filtrados según la búsqueda
 
-  paginatedData: any[] = []; // Pokémon de la página actual
+  paginatedData: any[] = []; // Dragones de la página actual
   searchTerm: string = ''; 
-  pageSize: number = 8; // Número de Pokémon por página
+  pageSize: number = 8; // Número de dragones por página
   currentPage: number = 0; // Página actual
-  selectedPokemon: any = null;
+  selectedDragon: any = null;
 
-  constructor(private dialog: MatDialog, private pokemonService: PokemonService) {}
+  constructor(private dialog: MatDialog, private dragonService: DragonService) {} // Cambia a DragonService
 
   ngOnInit(): void {
-    this.loadPokemons();
+    this.loadDragons(); // Cambia a loadDragons
   }
 
-  // Cargar los Pokémon de la página actual
-  loadPokemons(): void {
+  loadDragons(): void {
     const offset = this.currentPage * this.pageSize;
-    this.pokemonService.getPokemons(this.pageSize, offset).subscribe((data) => {
+    this.dragonService.getDragons().subscribe((data) => { // Cambia a getDragons
       this.dataSource = data;
       this.updatePaginatedData();
-      this.filteredData = data; // Initialize filtered data with all Pokémon
-
+      this.filteredData = data; // Inicializa los datos filtrados con todos los dragones
     });
   }
-  filterPokemons(): void {
+
+  filterDragons(): void { // Cambia el nombre a filterDragons
     if (!this.searchTerm) {
-      this.filteredData = this.dataSource; // If no search term, show all Pokémon
+      this.filteredData = this.dataSource; // Si no hay término de búsqueda, muestra todos los dragones
     } else {
       const term = this.searchTerm.toLowerCase();
-      this.filteredData = this.dataSource.filter(pokemon =>
-        pokemon.name.toLowerCase().includes(term) || 
-        pokemon.id.toString().includes(term) // Also filter by ID if needed
+      this.filteredData = this.dataSource.filter(dragon =>
+        dragon.name.toLowerCase().includes(term) || 
+        dragon.id.toString().includes(term) // También filtra por ID si es necesario
       );
     }
   }
-  // Actualizar los datos de la página actual
+
   updatePaginatedData(): void {
-    this.paginatedData = this.dataSource;
+    this.paginatedData = this.filteredData.slice(this.currentPage * this.pageSize, (this.currentPage + 1) * this.pageSize); // Actualiza la paginación con los dragones filtrados
   }
 
-  // Ver más información de un Pokémon
-  viewInfo(pokemonId: number): void {
-    this.selectedPokemon = this.paginatedData.find(pokemon => pokemon.id === pokemonId);
-    if (this.selectedPokemon) {
-      this.dialog.open(ModaldescripcionComponent, {
-        data: this.selectedPokemon
-      });
-    }
+  viewInfo(dragonId: number): void {
+    this.dragonService.getDragonById(dragonId).subscribe({
+      next: (dragon) => {
+        // Abre el modal con los datos del dragón
+        this.dialog.open(ModaldescripcionComponent, {
+          width: '400px',
+          data: dragon
+        });
+      },
+      error: (err) => console.error('Error al obtener el dragón:', err),
+    });
   }
-
-  // Editar un Pokémon
-  editPokemon(pokemonId: number): void {
-    const originalPokemon = this.paginatedData.find(pokemon => pokemon.id === pokemonId);
   
-    if (originalPokemon) {
-      const pokemonCopy = JSON.parse(JSON.stringify(originalPokemon));
+  editDragon(id: number): void {
+  this.dragonService.getDragonById(id).subscribe({
+    next: (dragon) => {
+      // Verifica los datos antes de abrir el modal
+      console.log('Datos del dragón:', dragon);
       const dialogRef = this.dialog.open(ModaleditComponent, {
-        data: pokemonCopy // Pasa la copia al modal
+        width: '500px',
+        data: dragon, // Pasar los datos al modal
       });
-  
-      dialogRef.afterClosed().subscribe((updatedPokemon) => {
-        if (updatedPokemon) {
-          const index = this.paginatedData.findIndex(pokemon => pokemon.id === updatedPokemon.id);
-          if (index !== -1) {
-            this.paginatedData[index] = updatedPokemon;
-            this.updatePaginatedData();
-          }
+
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          // Recargar la lista si hubo cambios
+          this.loadDragons();
         }
       });
-    }
-  }
+    },
+    error: (err) => console.error('Error al obtener el dragón:', err),
+  });
+}
 
-  // Eliminar un Pokémon
-  deletePokemon(pokemonId: number): void {
-    this.selectedPokemon = this.paginatedData.find(pokemon => pokemon.id === pokemonId);
-    if (this.selectedPokemon) {
+  
+  deleteDragon(dragonId: number): void { // Cambia a deleteDragon
+    this.selectedDragon = this.paginatedData.find(dragon => dragon.id === dragonId);
+    if (this.selectedDragon) {
       const dialogRef = this.dialog.open(ModaleliminarComponent, {
-        data: this.selectedPokemon
+        data: this.selectedDragon
       });
 
       dialogRef.afterClosed().subscribe((confirmed) => {
         if (confirmed) {
-          const index = this.paginatedData.findIndex(pokemon => pokemon.id === pokemonId);
+          const index = this.paginatedData.findIndex(dragon => dragon.id === dragonId);
           if (index !== -1) {
-            this.paginatedData.splice(index, 1); // Elimina el Pokémon de la tabla
+            this.paginatedData.splice(index, 1); // Elimina el dragón de la tabla
             this.updatePaginatedData(); // Actualiza la vista
           }
         }
@@ -126,14 +127,12 @@ export class PokemonComponent implements OnInit {
     }
   }
 
-  // Cambiar página
   changePage(direction: number): void {
     this.currentPage += direction;
-    this.loadPokemons();
+    this.loadDragons(); // Carga los dragones para la nueva página
   }
 
-  // Obtener el número total de páginas
   getTotalPages(): number {
-    return Math.ceil(1118 / this.pageSize); // Total de Pokémon en la API
+    return Math.ceil(1118 / this.pageSize); // Total de dragones en la API (ajusta según tu API)
   }
 }

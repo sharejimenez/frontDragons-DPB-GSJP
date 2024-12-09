@@ -1,0 +1,59 @@
+<div class="pokemon-list-container">
+    <h2 class="tit">Lista de Dragones</h2>
+    <div class="add-dragon-button">
+      <button mat-raised-button color="accent" (click)="openAddModal()">Añadir Dragón</button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="pokemon-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let dragon">{{ dragon.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="imagen">
+        <th mat-header-cell *matHeaderCellDef>Imagen</th>
+        <td mat-cell *matCellDef="let dragon">
+          <img [src]="'http://127.0.0.1:8000' + dragon.imagen" alt="{{ dragon.nombre }}" class="pokemon-image" />
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let dragon">{{ dragon.nombre }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="rareza">
+        <th mat-header-cell *matHeaderCellDef>Rareza</th>
+        <td mat-cell *matCellDef="let dragon">{{ dragon.rareza }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="elemento">
+        <th mat-header-cell *matHeaderCellDef>Elemento</th>
+        <td mat-cell *matCellDef="let dragon">{{ dragon.elemento }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let dragon">
+          <div class="action-buttons">
+            <button mat-raised-button color="primary" class="info-btn" (click)="viewInfo(dragon.id)">
+              Ver detalles
+            </button>
+            
+            <button mat-raised-button color="warn" class="delete-btn" (click)="deleteDragon(dragon.id)">
+              Eliminar
+            </button>
+            <button mat-icon-button class="edit-btn" (click)="editDragon(dragon.id)" title="Editar">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [length]="dataSource.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15]">
+    </mat-paginator>
+  </div>
+  

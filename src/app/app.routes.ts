@@ -8,25 +8,25 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { Portal } from '@angular/cdk/portal';
 import { WelcomeComponent } from './welcome/welcome.component';
-export const routes: Routes = [
-    {path:'login', component: LoginComponent},
-    {path:'welcome', component: WelcomeComponent},
-
-        {path: 'sidebar',
+import { OpcionesComponent } from './dashboard/opciones/opciones.component';
+import { DragonsComponent } from './dragon/dragon.component';
+import { ModaldescripcionComponent } from './modaldescripcion/modaldescripcion.component';
+  export const routes: Routes = [
+    { path: 'login', component: LoginComponent },
+    {
+        path: 'sidebar',
         component: SidebarComponent,
         children: [
-          { path: 'dashboard', component: DashboardComponent },
-          { path: 'list', component: ListComponent },
-          { path: 'pokemon', component: PokemonComponent },
-          {path:'welcome', component: WelcomeComponent},
+            { path: 'option', component: OpcionesComponent },
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'list', component: ListComponent },
+            { path: 'pokemon', component: PokemonComponent },
+            { path: 'welcome', component: WelcomeComponent },
+            { path: 'dragones', component: DragonsComponent},
+            { path: 'descrip', component: ModaldescripcionComponent},
 
-          { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
-        ]
-      },
-
-
-
-
-    {path:'', redirectTo:'/login', pathMatch:'full'},
-
+            { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
+        ],
+    },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];

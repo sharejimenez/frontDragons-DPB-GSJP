@@ -1,27 +1,31 @@
-<h2>Editar Dragón</h2>
-  <label for="edit-name">Nombre:</label>
+<h2>Agregar  sg Nuevo Dragón</h2>
+<form (ngSubmit)="addDragon()">
+  <label for="add-name">Nombre:</label>
   <input
-    id="edit-name"
-    [(ngModel)]="data.nombre"
+    id="add-name"
+    [(ngModel)]="newDragon.nombre"
     name="nombre"
     type="text"
     class="form-control"
+    required
   />
 
-  <label for="edit-description">Descripción:</label>
+  <label for="add-description">Descripción:</label>
   <textarea
-    id="edit-description"
-    [(ngModel)]="data.descripcion"
+    id="add-description"
+    [(ngModel)]="newDragon.descripcion"
     name="descripcion"
     class="form-control"
+    required
   ></textarea>
 
-  <label for="edit-rareza">Rareza:</label>
+  <label for="add-rareza">Rareza:</label>
   <select
-    id="edit-rareza"
-    [(ngModel)]="data.rareza"
+    id="add-rareza"
+    [(ngModel)]="newDragon.rareza"
     name="rareza"
     class="form-control"
+    required
   >
     <option value="Común">Común</option>
     <option value="Raro">Raro</option>
@@ -29,12 +33,13 @@
     <option value="Legendario">Legendario</option>
   </select>
 
-  <label for="edit-element">Elemento:</label>
+  <label for="add-element">Elemento:</label>
   <select
-    id="edit-element"
-    [(ngModel)]="data.elemento"
+    id="add-element"
+    [(ngModel)]="newDragon.elemento"
     name="elemento"
     class="form-control"
+    required
   >
     <option value="Fuego">Fuego</option>
     <option value="Agua">Agua</option>
@@ -43,22 +48,23 @@
     <option value="Metal">Metal</option>
   </select>
 
-  <label for="edit-image">Imagen:</label>
+  <label for="add-image">Imagen (URL):</label>
   <input
-    id="edit-image"
-    [(ngModel)]="data.imagen"
+    id="add-image"
+    [(ngModel)]="newDragon.imagen"
     name="imagen"
     type="text"
     class="form-control"
   />
 
   <div class="actions">
+    <button type="submit" class="save-btn btn">Guardar</button>
     <button
       type="button"
-      (click)="close()"
+      (click)="cancelAdd()"
       class="cancel-btn btn"
     >
       Cancelar
     </button>
   </div>
-
+</form>

@@ -6,7 +6,7 @@
       <div class="search-container">
           <div class="search-label-container">
               <label for="search-input" class="search-label">Buscar:</label>
-              <input type="text" id="search-input" [(ngModel)]="searchTerm" placeholder="Buscar Pokémon..." (input)="filterPokemons()" />
+              <input type="text" id="search-input" [(ngModel)]="searchTerm" placeholder="Buscar Pokémon..." (input)="filterDragons()" />
       </div>
   </div>
   <table class="pokemon-table">
@@ -24,13 +24,19 @@
         <td><img [src]="pokemon.image" alt="{{ pokemon.name }}" class="pokemon-image" /></td>
         <td>{{ pokemon.name }}</td>
         <td class="action-buttons">
-          <button mat-icon-button class="info-btn" (click)="viewInfo(pokemon.id)" title="Ver más información">
-            <mat-icon>info</mat-icon>
-          </button>
-          <button mat-icon-button class="edit-btn" (click)="editPokemon(pokemon.id)" title="Editar">
+          <button
+  mat-icon-button
+  class="info-btn"
+  (click)="viewInfo(pokemon.id)"
+  title="Ver más información"
+>
+  <mat-icon>info</mat-icon>
+</button>
+
+          <button mat-icon-button class="edit-btn" (click)="editDragon(pokemon.id)" title="Editar">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button class="delete-btn" (click)="deletePokemon(pokemon.id)" title="Eliminar">
+          <button mat-icon-button class="delete-btn" (click)="deleteDragon(pokemon.id)" title="Eliminar">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -47,11 +53,11 @@
 
   <!-- Modal de Información del Pokémon -->
   <ng-template mat-dialog-content>
-    <div *ngIf="selectedPokemon" class="pokemon-info">
-      <h2>{{ selectedPokemon.name }}</h2>
-      <img [src]="selectedPokemon.image" alt="{{ selectedPokemon.name }}" class="pokemon-detail-image" />
-      <p>ID: {{ selectedPokemon.id }}</p>
-      <p>Descripción: {{ selectedPokemon.description }}</p>
+    <div *ngIf="selectedDragon" class="pokemon-info">
+      <h2>{{ selectedDragon.name }}</h2>
+      <img [src]="selectedDragon.image" alt="{{ selectedDragon.name }}" class="pokemon-detail-image" />
+      <p>ID: {{selectedDragon.id }}</p>
+      <p>Descripción: {{ selectedDragon.description }}</p>
       <!-- Agregar más detalles del Pokémon aquí -->
     </div>
   </ng-template>

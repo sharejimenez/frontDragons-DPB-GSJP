@@ -1,64 +1,21 @@
+<div class="center-content d-flex justify-content-center align-items-center vh-100">
+  <div class="example-card">
+    <div class="color-barra"></div>
+    <h2 class="tit">Iniciar sesión</h2>
+    <form (ngSubmit)="onLogin()">
+      <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput [(ngModel)]="username" name="username" required placeholder="Ingresa tu usuario" />
+      </mat-form-field>
 
-<div class="center-content">
-  <mat-card class="example-card" appearance="outlined">
-    
-    <mat-card-header class="header-centered">
-      <!--<div mat-card-avatar class="example-header-image"></div>-->
-      <mat-card-title class="tit">Bienvenido</mat-card-title>
-      <mat-card-subtitle> Angular con Material Design</mat-card-subtitle>
-      <div mat-card-avatar class="example-header-image">
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="password" name="password" required type="password" placeholder="Ingresa tu contraseña" />
+      </mat-form-field>
+
+      <div class="button-container">
+        <button mat-raised-button class="mat-button" type="submit">Iniciar sesión</button>
       </div>
-    </mat-card-header>
-
-    <mat-card-content>
-      <mat-tab-group>
-        <mat-tab label="Iniciar Sesión">
-          <mat-form-field class="example-full-width">
-            <mat-label>Correo electrónico</mat-label>
-            <input  [(ngModel)]="username" type="email" matInput placeholder="Ingresa tu correo" value="">
-            <mat-icon matSuffix>email</mat-icon>
-
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>Contraseña</mat-label>
-            <input  [(ngModel)]="password" type="password" matInput placeholder="Ingresa tu contraseña">
-            <mat-icon matSuffix>vpn_key</mat-icon>
-
-          </mat-form-field>
-          <!--Btones inicio de sesión-->
-          <div class="button-container">
-            <button class="mat-button" color="primary" (click)="iniciarSesion()">Iniciar sesión</button>
-          </div>
-          <!--REGISTRO-->
-
-        </mat-tab>
-        <mat-tab label="Registro">
-          <mat-form-field class="example-full-width">
-            <mat-label>Correo electrónico</mat-label>
-            <input type="email" matInput placeholder="Ingresa tu correo" value="">
-            <mat-icon matSuffix>email</mat-icon>
-
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>Contraseña</mat-label>
-            <input type="password" matInput placeholder="Ingresa tu contraseña">
-            <mat-icon matSuffix>vpn_key</mat-icon>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Confirma contraseña</mat-label>
-            <input type="password" matInput placeholder="Confirmar contraseña">
-            <mat-icon matSuffix>mode_edit</mat-icon>
-
-          </mat-form-field>
-          <div class="button-container">
-            <button class="mat-button" color="primary" (click)="registrar()">Registrarse</button>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-
-    </mat-card-content>
-
-  </mat-card>
+    </form>
+  </div>
 </div>

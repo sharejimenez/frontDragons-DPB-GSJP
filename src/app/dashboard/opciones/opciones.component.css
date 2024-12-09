@@ -30,7 +30,7 @@
 }
 
 .mat-nav-list {
-    color: rgb(61, 55, 55);
+    color: rgb(232, 223, 223);
 }
 
 .header-text > h2 {
@@ -44,7 +44,7 @@
 .header-text > p {
     margin: 0;
     font-size: 0.8rem;
-    color: black;
+    color: rgb(237, 214, 214);
     
 }
 .sidenav-header.collapsed {
@@ -70,7 +70,7 @@
 mat-nav-list a {
     font-family: 'Poppins', sans-serif; /* Cambia la fuente */
     font-size: 16px; /* Tamaño de la fuente */
-    color: #444; /* Color de la fuente */
+    color: #f6ecec; /* Color de la fuente */
     text-decoration: none; /* Quita el subrayado */
     padding: 10px; /* Espaciado interno */
     display: flex;
@@ -85,14 +85,14 @@ mat-nav-list a {
   
   mat-icon {
     font-size: 26px; /* Tamaño más grande del ícono */
-    color: #e7d3a9; /* Color de los íconos */
+    color: #fdfdfc; /* Color de los íconos */
     margin-right: 10px; /* Espaciado entre ícono y texto */
     transition: transform 0.3s ease; /* Animación de escala */
   }
   
   mat-nav-list a:hover mat-icon {
     transform: scale(1.2); /* Efecto de agrandamiento del ícono al pasar el ratón */
-    color: #f09c01; /* Cambia el color del ícono al pasar el ratón */
+    color: #97b5e1; /* Cambia el color del ícono al pasar el ratón */
   }
   
   mat-list-item span {

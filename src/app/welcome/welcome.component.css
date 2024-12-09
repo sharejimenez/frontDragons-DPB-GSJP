@@ -1,50 +1,46 @@
 .settings-container {
-  max-width: 600px; /* Ancho máximo del contenedor */
-  margin: 40px auto; /* Centrar el contenedor horizontalmente */
-  padding: 20px; /* Espaciado interno */
-  display: flex; /* Usar flexbox para alinear elementos */
-  flex-direction: column; /* Alinear los elementos en columna */
-  align-items: center; /* Centrar los elementos horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8; /* Color de fondo suave */
+  font-family: 'Arial', sans-serif;
 }
 
 .welcome-card {
-  width: 100%; /* Ancho completo del card */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  background-color: #ffffff; /* Fondo blanco para la tarjeta */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 20px;
+  text-align: center;
+  max-width: 400px; /* Ancho máximo de la tarjeta */
 }
 
-mat-card-title {
-  font-size: 24px; /* Tamaño de fuente del título */
-  color: #333; /* Color del texto del título */
-  text-align: center; /* Centrar el texto del título */
+.welcome-image {
+  width: 100%; /* Imagen responsiva */
+  border-radius: 15px; /* Bordes redondeados en la imagen */
 }
 
-mat-card-content p {
-  font-size: 16px; /* Tamaño de fuente del contenido */
-  color: #666; /* Color del texto del contenido */
-  text-align: center; /* Centrar el texto del contenido */
+.welcome-title {
+  font-size: 2em; /* Tamaño de fuente grande */
+  color: #333; /* Color del texto */
+  margin-top: 10px;
 }
 
-mat-card-actions {
-  display: flex; /* Usar flexbox para alinear los botones */
-  justify-content: center; /* Centrar los botones horizontalmente */
+.welcome-message {
+  font-size: 1.2em; /* Tamaño de fuente moderado */
+  color: #666; /* Color gris para el mensaje */
 }
 
-mat-card-actions a {
-  margin-top: 10px; /* Margen superior para separar el botón del contenido */
+.description {
+  font-size: 1em; /* Tamaño de fuente normal */
+  color: #777; /* Color gris claro para la descripción */
+  margin-bottom: 20px;
 }
 
-
-input[type="checkbox"] {
-  transform: scale(1.2);
-  accent-color: #4a90e2;
-}
-
-
-img[mat-card-image] {
-  display: block; 
-  margin: 16px auto 16px; /* margen superior de 16px */
-  width: 200px; 
-  height: auto; 
-}
-
+.start-button {
+  display: inline-block;
+  padding: 10px 20px; /* Espaciado interno del botón */
+  background-color: #6200ea; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  text-decoration: none; /* Sin subrayado en el enlace */}

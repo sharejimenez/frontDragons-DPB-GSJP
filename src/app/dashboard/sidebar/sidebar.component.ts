@@ -8,8 +8,8 @@ import { signal } from '@angular/core';
 import { RouterOutlet,RouterLink,RouterLinkActive, Router } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { ListComponent } from '../../list/list.component';
-import { DashboardComponent } from '../dashboard.component';
 import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -17,27 +17,31 @@ import { UserService } from '../../services/user.service';
     RouterLink, RouterLinkActive, ListComponent,MatMenuModule],  templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
+
 export class SidebarComponent {
  
   constructor(private router: Router, private userservice:UserService) {}
    avatarUrl: string | null = null; // Variable para almacenar el avatar
   username='';
   avatar='';  
+  nombre='';
   user: Array<any>=[];
+  usuarioAutenticado: any = null;
 
   ngOnInit(): void {
-    // Recuperar datos del usuario desde localStorage
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (loggedInUser) {
-      const user = JSON.parse(loggedInUser);
-      this.username = user.name || ''; // Asigna el nombre del usuario
-      this.avatar = user.avatar || ''; // Asigna el avatar del usuario
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.usuarioAutenticado = JSON.parse(user);
+
+      this.nombre = this.usuarioAutenticado.nombre ;
+      console.log('Nombre:', this.nombre);
+      // Intenta acceder al campo
+      console.log('Usuario autenticado:', this.usuarioAutenticado);
     } else {
       console.log('No hay usuario autenticado en localStorage.');
-      this.router.navigate(['/login']); // Redirigir si no hay usuario autenticado
+      this.router.navigate(['/login']); // Redirigir a login si no hay usuario
     }
   }
-  
   collapsed=signal(false);
   sidevabWidth=computed(()=>this.collapsed() ? '65px' : '250px');
   logout(): void {

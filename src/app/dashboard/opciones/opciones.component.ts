@@ -33,8 +33,10 @@ export class OpcionesComponent {
   };
   menuItems = signal<MenuItem[]>([
     { icon: 'home', label: 'Inicio', link: '/sidebar/welcome' },
-    {icon: 'sports_esports  ',label: 'Pokemones',link: '/sidebar/pokemon' },
+    {icon: 'sports_esports  ',label: 'Dragones',link: '/sidebar/pokemon' },
     { icon: 'group', label: 'Usuarios', link: '/sidebar/list' },
+    { icon: 'person', label: 'Dragones', link: '/sidebar/dragones' },
+
   ]);
   
 

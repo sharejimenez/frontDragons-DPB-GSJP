@@ -1,19 +1,66 @@
-<h2>Editar Pokémon</h2>
+<h2>Editar Dragón axtu</h2>
 <form (ngSubmit)="saveChanges()">
-  <div>
-    <label for="edit-name">Nombre:</label>
-    <input id="edit-name" [(ngModel)]="data.name" name="name" type="text" class="form-control" />
-  </div>
-  <div>
-    <label for="edit-description">Descripción:</label>
-    <textarea id="edit-description" [(ngModel)]="data.description" name="description" class="form-control"></textarea>
-  </div>
-  <div>
-    <label for="edit-image">Imagen:</label>
-    <input id="edit-image" [(ngModel)]="data.image" name="image" type="text" class="form-control" />
-  </div>
+  <label for="edit-name">Nombre:</label>
+  <input
+    id="edit-name"
+    [(ngModel)]="data.nombre"
+    name="nombre"
+    type="text"
+    class="form-control"
+  />
+
+  <label for="edit-description">Descripción:</label>
+  <textarea
+    id="edit-description"
+    [(ngModel)]="data.descripcion"
+    name="descripcion"
+    class="form-control"
+  ></textarea>
+
+  <label for="edit-rareza">Rareza:</label>
+  <select
+    id="edit-rareza"
+    [(ngModel)]="data.rareza"
+    name="rareza"
+    class="form-control"
+  >
+    <option value="Común">Común</option>
+    <option value="Raro">Raro</option>
+    <option value="Épico">Épico</option>
+    <option value="Legendario">Legendario</option>
+  </select>
+
+  <label for="edit-element">Elemento:</label>
+  <select
+    id="edit-element"
+    [(ngModel)]="data.elemento"
+    name="elemento"
+    class="form-control"
+  >
+    <option value="Fuego">Fuego</option>
+    <option value="Agua">Agua</option>
+    <option value="Tierra">Tierra</option>
+    <option value="Aire">Aire</option>
+    <option value="Metal">Metal</option>
+  </select>
+
+  <label for="edit-image">Imagen:</label>
+  <input
+    id="edit-image"
+    [(ngModel)]="data.imagen"
+    name="imagen"
+    type="text"
+    class="form-control"
+  />
+
   <div class="actions">
-    <button type="submit" class="save-btn">Guardar</button>
-    <button type="button" (click)="cancelEdit()" class="fas fa-trash">Cancelar</button>
+    <button type="submit" class="save-btn btn">Guardar</button>
+    <button
+      type="button"
+      (click)="cancelEdit()"
+      class="cancel-btn btn"
+    >
+      Cancelar
+    </button>
   </div>
 </form>
