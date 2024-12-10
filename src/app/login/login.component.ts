@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
+import Swal from 'sweetalert2'; 
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -27,20 +27,26 @@ export class LoginComponent {
       success => {
         if (success) {
           console.log('Navegando a /sidebar/welcome');
-          
-          // Guarda al usuario autenticado en el localStorage
           const user = { username: this.username };
           localStorage.setItem('user', JSON.stringify(user));
-          
           this.router.navigate(['/sidebar/welcome']);
         } else {
-          this.errorMessage = 'Usuario o contraseña incorrectos';
+          this.showErrorAlert('Usuario o contraseña incorrectos');
         }
       },
       error => {
         console.error('Error en el login:', error);
-        this.errorMessage = 'Error al iniciar sesión. Por favor, inténtelo de nuevo.';
+        this.showErrorAlert('Error al iniciar sesión. Por favor, inténtelo de nuevo.');
       }
     );
+  }
+
+  private showErrorAlert(message: string): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: message,
+      confirmButtonText: 'Aceptar'
+    });
   }
 }  

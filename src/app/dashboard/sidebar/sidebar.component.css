@@ -11,7 +11,7 @@ mat-toolbar{
   }
   .border{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #d8dde0;
+    background-color: #9ca8c0;
 
   }
   
@@ -21,7 +21,7 @@ mat-toolbar{
 
   .text {
     font-size: 24px; /* Tamaño de fuente */
-    color: #9aad6e; /* Color del texto */
+    color: #ac951f; /* Color del texto */
     font-weight: bold; /* Negrita */
     background-color: #00173c; /* Color de fondo */
     padding: 10px 15px; /* Espaciado interno */
