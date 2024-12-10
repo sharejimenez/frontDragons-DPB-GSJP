@@ -11,6 +11,9 @@ import { Dragons } from '../models/dragons';
 import { ModaldescripcionComponent } from '../modaldescripcion/modaldescripcion.component';
 import { ModalagregaComponent } from '../modalagrega/modalagrega.component';
 import { ModaleditComponent } from '../modaledit/modaledit.component';
+import { FormsModule } from '@angular/forms';
+declare var bootstrap: any; // Declarar bootstrap para evitar errores de TypeScript
+
 @Component({
   selector: 'app-dragons',
   standalone: true,
@@ -20,7 +23,8 @@ import { ModaleditComponent } from '../modaledit/modaledit.component';
     MatPaginatorModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,    FormsModule 
+
   ],
   templateUrl: './dragon.component.html',
   styleUrls: ['./dragon.component.css']
@@ -30,8 +34,11 @@ export class DragonsComponent implements OnInit {
   dataSource: Dragons[] = [];
   originalDataSource: Dragons[] = [];
   searchTerm: string = '';
-  currentPage: number = 0;
-  pageSize: number = 8;
+  pageSize: number = 7; // Mostrar 7 dragones por página
+  pageIndex: number = 0; // Página actual
+  totalPages: number = 0; // Total de páginas
+  pageNumbers: number[] = []; // Páginas disponibles
+
 
   private dragonService = inject(DragonService);
   private dialog = inject(MatDialog);
@@ -47,14 +54,21 @@ export class DragonsComponent implements OnInit {
     });
   }
 
-  filterDragons(): void {
-    this.dataSource = this.searchTerm
-      ? this.originalDataSource.filter((dragon) =>
-          dragon.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())
-        )
-      : [...this.originalDataSource];
-  }
-
+ filterDragons(): void {
+  this.dataSource = this.searchTerm
+    ? this.originalDataSource.filter((dragon) =>
+        dragon.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())
+      )
+    : [...this.originalDataSource];
+}
+applyFilter(): void {
+  const filterValue = this.searchTerm.toLowerCase();
+  this.dataSource = this.originalDataSource.filter(dragon => 
+    dragon.nombre.toLowerCase().includes(filterValue) ||
+    dragon.rareza.toLowerCase().includes(filterValue) ||
+    dragon.elemento.toLowerCase().includes(filterValue)
+  );
+}
   deleteDragon(id: number): void {
     if (confirm('¿Estás seguro de eliminar este dragón?')) {
       this.dragonService.deleteDragon(id).subscribe(() => {
@@ -64,20 +78,19 @@ export class DragonsComponent implements OnInit {
   }
 
   openAddModal(): void {
-    const dialogRef = this.dialog.open(ModalagregaComponent);
+      const dialogRef = this.dialog.open(ModalagregaComponent, {
+        panelClass: 'custom-modal-class' // Clase personalizada
+    });
 
     dialogRef.afterClosed().subscribe((newDragon) => {
-      if (newDragon) {
-        this.dataSource = [...this.dataSource, newDragon]; // Clonamos el arreglo y agregamos el nuevo dragón
-        this.loadDragons();
-
-      }
+        if (newDragon) {
+            this.dataSource = [...this.dataSource, newDragon];
+            this.loadDragons();
+        }
     });
-  }
+}
 
-  private addDragonToList(newDragon: Dragons): void {
-    this.dataSource = [...this.dataSource, newDragon];
-  }
+  
   viewInfo(dragonId: number): void {
     const dragon = this.dataSource.find((d) => d.id === dragonId);
     if (dragon) {

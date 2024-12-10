@@ -1,64 +1,37 @@
-<h2>Editar Dragón</h2>
-  <label for="edit-name">Nombre:</label>
-  <input
-    id="edit-name"
-    [(ngModel)]="data.nombre"
-    name="nombre"
-    type="text"
-    class="form-control"
-  />
+<div class="modal">
+  <div class="modal-content">
+      <h2 class="h2">Detalles del Dragón</h2>
 
-  <label for="edit-description">Descripción:</label>
-  <textarea
-    id="edit-description"
-    [(ngModel)]="data.descripcion"
-    name="descripcion"
-    class="form-control"
-  ></textarea>
+      <div class="card-section">
+          <label class="nombrelabel">{{ data.nombre }}</label>
+          <div class="image-container">
+              <img
+                  [src]="'http://127.0.0.1:8000' + data.imagen"
+                  alt="{{ data.nombre }}"
+                  class="dragon-image"
+              />
+          </div>
+      </div>
 
-  <label for="edit-rareza">Rareza:</label>
-  <select
-    id="edit-rareza"
-    [(ngModel)]="data.rareza"
-    name="rareza"
-    class="form-control"
-  >
-    <option value="Común">Común</option>
-    <option value="Raro">Raro</option>
-    <option value="Épico">Épico</option>
-    <option value="Legendario">Legendario</option>
-  </select>
+      <div class="card-section">
+          <label>Descripción:</label>
+          <span>{{ data.descripcion }}</span>
+      </div>
 
-  <label for="edit-element">Elemento:</label>
-  <select
-    id="edit-element"
-    [(ngModel)]="data.elemento"
-    name="elemento"
-    class="form-control"
-  >
-    <option value="Fuego">Fuego</option>
-    <option value="Agua">Agua</option>
-    <option value="Tierra">Tierra</option>
-    <option value="Aire">Aire</option>
-    <option value="Metal">Metal</option>
-  </select>
+      <div class="card-section">
+          <label>Rareza:</label>
+          <span>{{ data.rareza }}</span>
+      </div>
 
-  <label for="edit-image">Imagen:</label>
-  <input
-    id="edit-image"
-    [(ngModel)]="data.imagen"
-    name="imagen"
-    type="text"
-    class="form-control"
-  />
+      <div class="card-section">
+          <label>Elemento:</label>
+          <span>{{ data.elemento }}</span>
+      </div>
 
-  <div class="actions">
-    <button
-      type="button"
-      (click)="close()"
-      class="cancel-btn btn"
-    >
-      Cancelar
-    </button>
+      <div class="actions">
+          <button type="button" (click)="close()" class="btn back-btn">
+              Cerrar
+          </button>
+      </div>
   </div>
-
+</div>

@@ -1,70 +1,83 @@
-<h2>Agregar  sg Nuevo Dragón</h2>
-<form (ngSubmit)="addDragon()">
-  <label for="add-name">Nombre:</label>
-  <input
-    id="add-name"
-    [(ngModel)]="newDragon.nombre"
-    name="nombre"
-    type="text"
-    class="form-control"
-    required
-  />
+<div class="modal">
+    <div class="modal-content">
+        <h2 class="h2">Agregar Nuevo Dragón</h2>
+        <form (ngSubmit)="addDragon()">
+            <label for="add-name">Nombre:</label>
+            <input
+                id="add-name"
+                [(ngModel)]="newDragon.nombre"
+                name="nombre"
+                type="text"
+                class="form-control"
+                required
+            />
 
-  <label for="add-description">Descripción:</label>
-  <textarea
-    id="add-description"
-    [(ngModel)]="newDragon.descripcion"
-    name="descripcion"
-    class="form-control"
-    required
-  ></textarea>
+            <label for="add-description">Descripción:</label>
+            <textarea
+                id="add-description"
+                [(ngModel)]="newDragon.descripcion"
+                name="descripcion"
+                class="form-control"
+                required
+            ></textarea>
 
-  <label for="add-rareza">Rareza:</label>
-  <select
-    id="add-rareza"
-    [(ngModel)]="newDragon.rareza"
-    name="rareza"
-    class="form-control"
-    required
-  >
-    <option value="Común">Común</option>
-    <option value="Raro">Raro</option>
-    <option value="Épico">Épico</option>
-    <option value="Legendario">Legendario</option>
-  </select>
+            <div class="row">
+              <div class="col-md-8"> 
+                  <div class="form-group">
+                      <label for="add-rareza">Rareza:</label>
+                      <select
+                          id="add-rareza"
+                          [(ngModel)]="newDragon.rareza"
+                          name="rareza"
+                          class="form-control"
+                          required
+                      >
+                      <option value="Común">Selecciona rareza</option>
 
-  <label for="add-element">Elemento:</label>
-  <select
-    id="add-element"
-    [(ngModel)]="newDragon.elemento"
-    name="elemento"
-    class="form-control"
-    required
-  >
-    <option value="Fuego">Fuego</option>
-    <option value="Agua">Agua</option>
-    <option value="Tierra">Tierra</option>
-    <option value="Aire">Aire</option>
-    <option value="Metal">Metal</option>
-  </select>
+                          <option value="Común">Común</option>
+                          <option value="Raro">Raro</option>
+                          <option value="Épico">Épico</option>
+                          <option value="Legendario">Legendario</option>
+                      </select>
+                  </div>
+              </div>
+          
+              <div class="col-md-8"> 
+                  <div class="form-group">
+                      <label for="add-element">Elemento:</label>
+                      <select
+                          id="add-element"
+                          [(ngModel)]="newDragon.elemento"
+                          name="elemento"
+                          class="form-control"
+                          required
+                      >
+                      <option value="Fuego">Selecciona elemento</option>
 
-  <label for="add-image">Imagen (URL):</label>
-  <input
-    id="add-image"
-    [(ngModel)]="newDragon.imagen"
-    name="imagen"
-    type="text"
-    class="form-control"
-  />
+                          <option value="Fuego">Fuego</option>
+                          <option value="Agua">Agua</option>
+                          <option value="Tierra">Tierra</option>
+                          <option value="Aire">Aire</option>
+                          <option value="Metal">Metal</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+            <label for="add-image">Imagen (URL):</label>
+            <input
+                id="add-image"
+                [(ngModel)]="newDragon.imagen"
+                name="imagen"
+                type="text"
+                class="form-control"
+            />
 
-  <div class="actions">
-    <button type="submit" class="save-btn btn">Guardar</button>
-    <button
-      type="button"
-      (click)="cancelAdd()"
-      class="cancel-btn btn"
-    >
-      Cancelar
-    </button>
-  </div>
-</form>
+            <div class="actions">
+                <button type="submit" class="btn-save btn">Guardar</button>
+                <button type="button" (click)="cancelAdd()" class="cancel-btn btn">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

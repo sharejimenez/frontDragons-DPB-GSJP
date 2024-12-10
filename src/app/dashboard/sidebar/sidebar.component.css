@@ -3,7 +3,7 @@
 mat-toolbar{
     position: relative;
     z-index: 5;
-    background-color: #021b42;
+    background-color: #00173c;
   }
   .content{
     padding: 24px;
@@ -11,7 +11,7 @@ mat-toolbar{
   }
   .border{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #7c99ad;
+    background-color: #d8dde0;
 
   }
   
@@ -21,9 +21,9 @@ mat-toolbar{
 
   .text {
     font-size: 24px; /* Tamaño de fuente */
-    color: #eaedef; /* Color del texto */
+    color: #9aad6e; /* Color del texto */
     font-weight: bold; /* Negrita */
-    background-color: #021b42; /* Color de fondo */
+    background-color: #00173c; /* Color de fondo */
     padding: 10px 15px; /* Espaciado interno */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */

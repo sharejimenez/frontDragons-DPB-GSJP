@@ -56,6 +56,16 @@ export class DragonService {
       })
     );
   }
+  searchDragons(term: string): Observable<Dragons[]> {
+    const url = `${this.apiUrl}?search=${term}`;
+    return this.http.get<Dragons[]>(url).pipe(
+      catchError(err => {
+        console.error('Error al buscar dragones:', err);
+        return throwError(() => new Error('Error al realizar la búsqueda.'));
+      })
+    );
+  }
+  
   
   
 }

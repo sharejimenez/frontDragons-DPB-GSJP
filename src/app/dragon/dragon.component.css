@@ -1,14 +1,71 @@
+.pokemon-table-container {
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+}
+@media (max-width: 768px) {
+  .pokemon-table th, .pokemon-table td {
+    font-size: 14px; /* Reduce el tamaño de la fuente */
+    padding: 8px; /* Reduce el padding */
+  }}
 .pokemon-list-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 60px; /* Añade espacio debajo del contenedor */
+
+}
+.pokemon-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+  /*aqui el colo que resalta la colimnas de la tbla*/
+  .pokemon-table th {
+    background-color: #3d92ec; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    min-width: 100px; /* Ancho mínimo para cada celda */
+
   }
   
+  .pokemon-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  .input-group {
+    max-width: 400px; /* Ancho máximo del grupo de entrada */
+    margin: auto; /* Centrar el campo en su contenedor */
+  }
+  
+  .input-group-text {
+    background-color: #f9f9f9; /* Color de fondo del ícono */
+    border: 1px solid #ced4da; /* Borde del ícono */
+  }
+  
+  .form-control {
+    border: 1px solid #ced4da; /* Borde del campo */
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff; /* Color del borde al enfocar */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Sombra al enfocar */
+  }
   .pokemon-table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
+  }
+  .pokemon-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alterna colores */
+  }
+  
+  .pokemon-table tr:hover {
+    background-color: #e9ecef; /* Sombreado al pasar el mouse */
   }
   
   .pokemon-image {
@@ -17,13 +74,15 @@
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
   }
   
-  .tit {
-    font-size: 20px;
-    color: #333333;
-    font-weight: bold;
-    margin: 10px 0;
-    text-align: center;
-  }
+ /* Título */
+.tit {
+  font-size: 30px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
   
   .action-buttons button {
     margin-right: 5px;
@@ -32,4 +91,99 @@
   .mat-form-field {
     width: 100%;
   }
+  ::ng-deep .mat-dialog-container {
+    background-color: #f0f0f0; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-top: 20;
+    padding: 20px; /* Espaciado interno */
+    max-width: 600px; /* Ancho máximo */
+    margin: auto; /* Centrar el modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+.filtro {
   
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espaciado entre el icono y el input */
+  background-color: #f1f3f5; /* Fondo claro */
+  border: 1px solid #ced4da; /* Borde gris */
+  border-radius: 8px; /* Esquinas redondeadas */
+  padding: 0.4rem 1rem; /* Ajusta la altura con padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  width: 200px; /* Controla el ancho */
+  max-width: 100%; /* Evita que se desborde en pantallas pequeñas */
+  margin-bottom: 20px;
+}
+
+
+
+
+
+.filtro input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1; /* Permite que el input ocupe el espacio restante */
+  font-size: 1rem;
+  color: #495057; /* Texto oscuro */
+}
+
+.filtro input::placeholder {
+  color: #adb5bd; /* Color del placeholder */
+}
+
+
+.filtro i {
+  color: #6c757d; /* Color del icono */
+  font-size: 1.2rem; /* Tamaño del icono */
+}
+
+
+
+.filtro input:focus {
+  outline: none;
+  box-shadow: none; /* Sin sombra al enfocar */
+}
+
+
+/* Botones */
+.add-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  margin: 0 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.info-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.action-btn:hover {
+  opacity: 0.8;
+}

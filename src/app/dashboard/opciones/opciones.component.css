@@ -92,7 +92,7 @@ mat-nav-list a {
   
   mat-nav-list a:hover mat-icon {
     transform: scale(1.2); /* Efecto de agrandamiento del ícono al pasar el ratón */
-    color: #97b5e1; /* Cambia el color del ícono al pasar el ratón */
+    color: #5081cb; /* Cambia el color del ícono al pasar el ratón */
   }
   
   mat-list-item span {
