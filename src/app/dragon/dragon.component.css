@@ -100,24 +100,27 @@
     margin: auto; /* Centrar el modal */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
 }
-.filtro {
+.search-container {
+
+
   
   display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  margin-bottom: 20px; /* Espaciado debajo del buscador */
+}
+
+/* Estilo del buscador */
+.filtro {
+  display: flex;
   align-items: center;
-  gap: 0.5rem; /* Espaciado entre el icono y el input */
+  gap: 0.5rem; /* Espaciado entre el ícono y el input */
   background-color: #f1f3f5; /* Fondo claro */
   border: 1px solid #ced4da; /* Borde gris */
   border-radius: 8px; /* Esquinas redondeadas */
   padding: 0.4rem 1rem; /* Ajusta la altura con padding */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-  width: 200px; /* Controla el ancho */
-  max-width: 100%; /* Evita que se desborde en pantallas pequeñas */
-  margin-bottom: 20px;
+  width: 300px; /* Ancho del buscador */
 }
-
-
-
-
 
 .filtro input {
   border: none;
@@ -132,13 +135,10 @@
   color: #adb5bd; /* Color del placeholder */
 }
 
-
 .filtro i {
   color: #6c757d; /* Color del icono */
   font-size: 1.2rem; /* Tamaño del icono */
 }
-
-
 
 .filtro input:focus {
   outline: none;

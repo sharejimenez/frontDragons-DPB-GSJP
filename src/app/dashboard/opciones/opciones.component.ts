@@ -35,7 +35,7 @@ export class OpcionesComponent {
     { icon: 'home', label: 'Inicio', link: '/sidebar/welcome' },
     { icon: 'group', label: 'Usuarios', link: '/sidebar/list' },
     { icon: 'shield', label: 'Dragones', link: '/sidebar/dragones' },
-    { icon: 'gamepad', label: 'Dragones', link: '/sidebar/dragones' },
+    { icon: 'gamepad', label: 'Catalogo', link: '/sidebar/catalogo' },
 
   ]);
   

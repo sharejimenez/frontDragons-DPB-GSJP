@@ -11,6 +11,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { OpcionesComponent } from './dashboard/opciones/opciones.component';
 import { DragonsComponent } from './dragon/dragon.component';
 import { ModaldescripcionComponent } from './modaldescripcion/modaldescripcion.component';
+import { CatalogoComponent } from './catalogo/catalogo.component';
   export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     {
@@ -24,6 +25,7 @@ import { ModaldescripcionComponent } from './modaldescripcion/modaldescripcion.c
             { path: 'welcome', component: WelcomeComponent },
             { path: 'dragones', component: DragonsComponent},
             { path: 'descrip', component: ModaldescripcionComponent},
+            { path: 'catalogo', component: CatalogoComponent},
 
             { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
         ],

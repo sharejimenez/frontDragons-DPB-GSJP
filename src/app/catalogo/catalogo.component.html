@@ -1,0 +1,28 @@
+<div class="catalogo-container">
+    <h2 class="catalogo-title">Catálogo de Dragones</h2>
+  
+    <div class="catalogo-search">
+      <i class="bi bi-search"></i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (input)="applyFilter()" 
+        placeholder="Buscar dragón..." 
+        aria-label="Buscar dragón..."
+      />
+    </div>
+  
+    <div class="card-grid">
+      <div class="card" *ngFor="let dragon of dataSource">
+        <div class="card-image">
+          <img [src]="'http://127.0.0.1:8000' + dragon.imagen" alt="{{ dragon.nombre }}">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">{{ dragon.nombre }}</h3>
+          <p class="card-subtitle">Rareza: {{ dragon.rareza }}</p>
+          <p class="card-description">Elemento: {{ dragon.elemento }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

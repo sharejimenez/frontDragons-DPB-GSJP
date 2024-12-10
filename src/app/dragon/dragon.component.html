@@ -1,14 +1,16 @@
 <div class="pokemon-list-container">
   <h2 class="tit">Lista de Dragones</h2>
-  <div class="filtro">
-    <i class="bi bi-search"></i>
-    <input 
-      type="text" 
-      [(ngModel)]="searchTerm" 
-      (input)="applyFilter()" 
-      placeholder="Buscar dragón..." 
-      aria-label="Buscar dragón..."
-    />
+  <div class="search-container">
+    <div class="filtro">
+      <i class="bi bi-search"></i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (input)="applyFilter()" 
+        placeholder="Buscar dragón..." 
+        aria-label="Buscar dragón..."
+      />
+    </div>
   </div>
   
   <div class="add-dragon-button">

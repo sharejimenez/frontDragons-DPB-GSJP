@@ -8,6 +8,7 @@
 }
 
 .welcome-card {
+  background-color: #ffffff;
   width: 100%; /* Ancho completo del card */
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */

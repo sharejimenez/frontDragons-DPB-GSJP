@@ -38,6 +38,7 @@ export class DragonsComponent implements OnInit {
   pageIndex: number = 0; // Página actual
   totalPages: number = 0; // Total de páginas
   pageNumbers: number[] = []; // Páginas disponibles
+  filteredDragons = [...this.dataSource]; // Inicializa con todos los dragones
 
 
   private dragonService = inject(DragonService);
@@ -60,15 +61,30 @@ export class DragonsComponent implements OnInit {
         dragon.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())
       )
     : [...this.originalDataSource];
-}
-applyFilter(): void {
+}applyFilter(): void {
+  const term = this.searchTerm.toLowerCase();
   const filterValue = this.searchTerm.toLowerCase();
   this.dataSource = this.originalDataSource.filter(dragon => 
+    
+
     dragon.nombre.toLowerCase().includes(filterValue) ||
     dragon.rareza.toLowerCase().includes(filterValue) ||
     dragon.elemento.toLowerCase().includes(filterValue)
   );
+  // Si no hay término de búsqueda, muestra todos los dragones
+  if (!term.trim()) {
+    this.filteredDragons = [...this.dataSource];
+    return;
+  }
+
+  // Filtra los dragones según el término ingresado
+  this.filteredDragons = this.dataSource.filter(dragon =>
+    dragon.nombre.toLowerCase().includes(term) ||
+    dragon.rareza.toLowerCase().includes(term) ||
+    dragon.elemento.toLowerCase().includes(term)
+  );
 }
+
   deleteDragon(id: number): void {
     if (confirm('¿Estás seguro de eliminar este dragón?')) {
       this.dragonService.deleteDragon(id).subscribe(() => {
