@@ -1,79 +1,57 @@
-/* General */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 20px;
-}
-
-.contenedor {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Título */
-.contenedor h1 {
-  text-align: center;
+.tit {
+  font-size: 30px;
   color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-
-/* Usuario Autenticado */
-.usuario-autenticado {
-  background-color: #e3f2fd;
-  padding: 10px 15px;
-  border: 1px solid #90caf9;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.usuario-autenticado p {
-  margin: 0;
-  color: #1565c0;
-  font-size: 16px;
   font-weight: bold;
+  margin-bottom: 20px; /* Espacio entre el título y la tabla */
+  text-align: center; /* Centrar el texto del título */
 }
 
-/* Tabla */
+.container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 60px; /* Añade espacio debajo del contenedor */
+}
+
 .table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+  width: auto; /* Ajustar ancho al contenido */
+  border-collapse: collapse; /* Colapsar bordes */
+  table-layout: auto; /* Ajustar el tamaño de las columnas al contenido */
+  margin: 0 auto; /* Centrar la tabla dentro del contenedor */
 }
 
 .table th {
-  background-color: #1565c0;
-  color: #fff;
-  text-align: left;
-  padding: 10px;
-  font-size: 14px;
+  background-color: #343a40; /* Color de fondo oscuro para el encabezado */
+  color: white; /* Texto blanco */
+  text-align: center; /* Centrar texto en encabezados */
 }
 
-.table td {
-  background-color: #e3f2fd;
-  padding: 10px;
-  border: 1px solid #90caf9;
-  color: #333;
+.table th, .table td {
+  padding: 12px; /* Espaciado interno en celdas */
+  text-align: center; /* Centrar texto en celdas */
 }
 
-.table tr:nth-child(even) td {
-  background-color: #f1f8ff;
+.table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Color de fondo alternativo para filas pares */
 }
 
-/* Responsive */
+.table tr:hover {
+  background-color: #ebefe9; /* Color al pasar el mouse sobre la fila */
+}
+
+/* Estilos responsivos */
 @media (max-width: 768px) {
-  .contenedor {
-    padding: 15px;
-  }
-
   .table th, .table td {
-    font-size: 12px;
-    padding: 8px;
+    font-size: 14px; /* Reducir tamaño de fuente en pantallas pequeñas */
+    padding: 8px; /* Reducir espaciado interno en celdas */
   }
+}
+.contiene-pagi {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  margin-top: 20px;
 }

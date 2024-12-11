@@ -5,8 +5,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { signal } from '@angular/core';
 import {MatListModule} from '@angular/material/list'
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
+import { RouterOutlet,RouterLink,RouterLinkActive, Router } from '@angular/router';
 export type MenuItem={
   icon:string;
   label:string;
@@ -20,12 +21,15 @@ export type MenuItem={
   styleUrl: './opciones.component.css'
 })
 export class OpcionesComponent {
-  avatarUrl: string | null = null; // Variable para almacenar el avatar
-
-  constructor( private userservice: UserService) {}
-
-  @Input() userImage: string | null = null; // Imagen del usuario logueado
+  constructor(private router: Router, private userservice:AuthService) {}
+   avatarUrl: string | null = null; // Variable para almacenar el avatar
+  username='';
+  avatar='';  
   loggedInUser: any = null;
+
+  nombre='';
+  user: Array<any>=[];
+  usuarioAutenticado: any = null;
 
   sideNavCollapsed=signal(false);
   @Input() set collapsed(value: boolean) {
@@ -43,14 +47,19 @@ export class OpcionesComponent {
   profilePicsSize=computed(()=>this.sideNavCollapsed()? '32px' : '100px');
 
   ngOnInit(): void {
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (loggedInUser) {
-      const user = JSON.parse(loggedInUser);
-      this.avatarUrl = user.avatar || null; // Asignamos el avatar del usuario
+    this.loggedInUser = this.userservice.getAutenticadoUsuario();
+    console.log('Usuario logueadoeee:', this.loggedInUser); 
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.usuarioAutenticado = JSON.parse(user);
+
+      this.nombre = this.usuarioAutenticado.nombre ;
+      console.log('Nombre:', this.nombre);
+      // Intenta acceder al campo
+      console.log('Usuario autenticado:', this.usuarioAutenticado);
+    } else {
+      console.log('No hay usuario autenticado en localStorage.');
+      this.router.navigate(['/login']); // Redirigir a login si no hay usuario
     }
-    this.loggedInUser = this.userservice.getLoggedInUser();
-
-    console.log('Usuariologueado:', this.loggedInUser); 
-
   }
 }

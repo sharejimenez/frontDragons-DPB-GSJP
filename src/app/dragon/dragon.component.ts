@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,NgFor, NgIf} from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
@@ -13,6 +13,8 @@ import { ModalagregaComponent } from '../modalagrega/modalagrega.component';
 import { ModaleditComponent } from '../modaledit/modaledit.component';
 import { FormsModule } from '@angular/forms';
 declare var bootstrap: any; // Declarar bootstrap para evitar errores de TypeScript
+import { NgxPaginationModule } from 'ngx-pagination';
+import Swal from 'sweetalert2'; // Asegúrate de importar SweetAlert2
 
 @Component({
   selector: 'app-dragons',
@@ -20,8 +22,8 @@ declare var bootstrap: any; // Declarar bootstrap para evitar errores de TypeScr
   imports: [
     CommonModule,
     MatTableModule,
-    MatPaginatorModule,
-    MatInputModule,
+    MatPaginatorModule,NgFor, NgIf,
+    MatInputModule,NgxPaginationModule,
     MatButtonModule,
     MatIconModule,    FormsModule 
 
@@ -34,12 +36,9 @@ export class DragonsComponent implements OnInit {
   dataSource: Dragons[] = [];
   originalDataSource: Dragons[] = [];
   searchTerm: string = '';
-  pageSize: number = 7; // Mostrar 7 dragones por página
-  pageIndex: number = 0; // Página actual
-  totalPages: number = 0; // Total de páginas
-  pageNumbers: number[] = []; // Páginas disponibles
   filteredDragons = [...this.dataSource]; // Inicializa con todos los dragones
-
+  page: number = 1; // Current page number
+  pageSize: number = 5;
 
   private dragonService = inject(DragonService);
   private dialog = inject(MatDialog);
@@ -85,13 +84,35 @@ export class DragonsComponent implements OnInit {
   );
 }
 
-  deleteDragon(id: number): void {
-    if (confirm('¿Estás seguro de eliminar este dragón?')) {
+deleteDragon(id: number): void {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: '¡No podrás recuperar este dragón después de eliminarlo!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Sí, eliminarlo!',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
       this.dragonService.deleteDragon(id).subscribe(() => {
         this.dataSource = this.dataSource.filter((dragon) => dragon.id !== id);
+        Swal.fire(
+          'Eliminado!',
+          'El dragón ha sido eliminado.',
+          'success'
+        );
+      }, error => {
+        Swal.fire(
+          'Error!',
+          'Hubo un problema al eliminar el dragón.',
+          'error'
+        );
       });
     }
-  }
+  });
+}
 
   openAddModal(): void {
       const dialogRef = this.dialog.open(ModalagregaComponent, {

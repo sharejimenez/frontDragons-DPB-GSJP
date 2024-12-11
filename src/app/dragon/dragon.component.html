@@ -3,16 +3,11 @@
   <div class="search-container">
     <div class="filtro">
       <i class="bi bi-search"></i>
-      <input 
-        type="text" 
-        [(ngModel)]="searchTerm" 
-        (input)="applyFilter()" 
-        placeholder="Buscar dragón..." 
-        aria-label="Buscar dragón..."
-      />
+      <input type="text" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Buscar dragón..."
+        aria-label="Buscar dragón..." />
     </div>
   </div>
-  
+
   <div class="add-dragon-button">
     <button mat-raised-button color="accent" (click)="openAddModal()">Añadir Dragón</button>
   </div>
@@ -31,9 +26,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let dragon of dataSource">
+        <tr *ngFor="let dragon of dataSource | paginate: { itemsPerPage: pageSize, currentPage: page }">
           <td>{{ dragon.id }}</td>
-          <td><img [src]="'http://127.0.0.1:8000' + dragon.imagen" alt="{{ dragon.nombre }}" class="pokemon-image" /></td>
+          <td><img [src]="'http://127.0.0.1:8000' + dragon.imagen" alt="{{ dragon.nombre }}" class="pokemon-image" />
+          </td>
           <td>{{ dragon.nombre }}</td>
           <td>{{ dragon.rareza }}</td>
           <td>{{ dragon.elemento }}</td>
@@ -45,6 +41,15 @@
         </tr>
       </tbody>
     </table>
-  </div> <!-- Fin del contenedor -->
-  
-</div>
+    <div class="contiene-pagi">
+
+      <pagination-controls class="pagination-controls"  (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+      </pagination-controls>
+
+      <!-- Información sobre la página actual -->
+      <div class="mt-2 text-center">
+        Página {{ page }} de {{ (loadDragons.length / pageSize) | number: '1.0-0' }}
+      </div>
+    </div> <!-- Fin del contenedor -->
+
+  </div>

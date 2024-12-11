@@ -1,7 +1,10 @@
 <div class="menu">
     <div class="sidenav-header" *ngIf="loggedInUser" class="sidenav-header" [class.collapsed]="sideNavCollapsed()">
         
-        
+        <img *ngIf="loggedInUser.avatar" [src]="loggedInUser.avatar" alt="Foto de perfil" class="profile-img" />
+        <div class="header-text" [class.hide-header-text]="sideNavCollapsed()">
+            <span class="welcome-text"> {{ loggedInUser.name }}</span>
+        </div>
         </div>
         <mat-nav-list class="mat-icon-btn">
             <a mat-list-item *ngFor=" let item of menuItems()" 

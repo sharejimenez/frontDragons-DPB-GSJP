@@ -8,8 +8,7 @@ import { signal } from '@angular/core';
 import { RouterOutlet,RouterLink,RouterLinkActive, Router } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { ListComponent } from '../../list/list.component';
-import { UserService } from '../../services/user.service';
-
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -20,15 +19,19 @@ import { UserService } from '../../services/user.service';
 
 export class SidebarComponent {
  
-  constructor(private router: Router, private userservice:UserService) {}
+  constructor(private router: Router, private userservice:AuthService) {}
    avatarUrl: string | null = null; // Variable para almacenar el avatar
   username='';
   avatar='';  
+  loggedInUser: any = null;
+
   nombre='';
   user: Array<any>=[];
   usuarioAutenticado: any = null;
 
   ngOnInit(): void {
+    this.loggedInUser = this.userservice.getAutenticadoUsuario();
+    console.log('Usuario logueadoeee:', this.loggedInUser); 
     const user = localStorage.getItem('user');
     if (user) {
       this.usuarioAutenticado = JSON.parse(user);

@@ -45,7 +45,16 @@ input[type="checkbox"] {
 img[mat-card-image] {
   display: block; 
   margin: 16px auto 16px; /* margen superior de 16px */
-  width: 200px; 
-  height: auto; 
+  width: 300px; 
+  height: 140; 
 }
-
+@media (max-width: 768px) { /* Cambié el ancho máximo a 768px para dispositivos móviles */
+  img[mat-card-image] {
+    width: 100%; /* La imagen ocupará el 100% del ancho del contenedor en pantallas pequeñas */
+    height: auto; /* Mantiene la proporción de la imagen */
+    padding: 8px; /* Espaciado interno si es necesario */
+  }
+}
+.h5{
+  color: aqua;
+}

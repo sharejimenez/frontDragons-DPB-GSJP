@@ -187,3 +187,15 @@
 .action-btn:hover {
   opacity: 0.8;
 }
+/*estilos paginacion jajaj*/
+.contiene-pagi {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  margin-top: 20px;
+}
+
+.pagination-controls {
+  margin-bottom: 10px;
+}
