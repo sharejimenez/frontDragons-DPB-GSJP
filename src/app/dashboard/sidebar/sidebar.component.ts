@@ -48,7 +48,10 @@ export class SidebarComponent {
   collapsed=signal(false);
   sidevabWidth=computed(()=>this.collapsed() ? '65px' : '250px');
   logout(): void {
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('currentUser');
     this.router.navigate(['/login']); 
+    this.usuarioAutenticado = null; // Asegúrate de limpiar el estado interno
+    this.loggedInUser = null; // Asegúrate de limpiar el estado interno
+
   }
 }

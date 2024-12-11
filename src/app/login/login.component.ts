@@ -29,7 +29,9 @@ export class LoginComponent {
           console.log('Navegando a /sidebar/welcome');
           const user = { username: this.username };
           localStorage.setItem('user', JSON.stringify(user));
+          
           this.router.navigate(['/sidebar/welcome']);
+
         } else {
           this.showErrorAlert('Usuario o contraseña incorrectos');
         }
