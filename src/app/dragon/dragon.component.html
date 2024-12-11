@@ -34,9 +34,16 @@
           <td>{{ dragon.rareza }}</td>
           <td>{{ dragon.elemento }}</td>
           <td>
-            <button class="action-btn info-btn" (click)="viewInfo(dragon.id)">Ver detalles</button>
-            <button class="action-btn edit-btn" (click)="editDragon(dragon.id)">Editar</button>
-            <button class="action-btn delete-btn" (click)="deleteDragon(dragon.id)">Eliminar</button>
+            <button mat-icon-button class="info-btn" (click)="viewInfo(dragon.id)" title="Ver más información">
+              <mat-icon>info</mat-icon>
+            </button>
+            <button mat-icon-button class="edit-btn" (click)="editDragon(dragon.id)" title="Editar">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button class="delete-btn" (click)="deleteDragon(dragon.id)" title="Eliminar">
+              <mat-icon>delete</mat-icon>
+            </button>
+  
           </td>
         </tr>
       </tbody>
